@@ -1,0 +1,99 @@
+/*************************************************/
+/*Contact Panel*/
+/*************************************************/
+.contactPanel-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;    
+    width: 100%;
+    background-image: url(../img/1000_F_299954599_W13RyRyMcugCDfzUzIzVM4SrNVzg3tnQ.jpg);
+    border-radius: 3dvw;
+    border: 1px solid black;
+}
+
+.contact-panel{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;    
+    width: 375px;    
+    border: 1px solid black;        
+    border-radius: 10px;
+    margin: 10px;
+    box-shadow: 0px 0px 20px #000;
+}
+
+.contact-title{
+    margin-top: 10px;
+    font-size: 25px;    
+    text-align: center;    
+}
+.elements-ContactPanel {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:flex-start;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+.element-panel1{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 2px;
+    width: 30%;
+}
+
+.element-panel2{    
+    width: 65%;
+    padding: 2px;
+}
+.element-panel3{
+    display: flex;
+    justify-content: flex-end;
+    align-items: baseline;
+    padding: 12px 2px 2px 2px;
+    width: 30%;
+}
+.element-panel4-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    padding: 2px;
+    width: 100%;
+}
+
+.input-contact, .btn-contact{    
+    border-radius: 5px;
+    border: 1px solid black;
+    width: 95%;  
+    height: 30px;      
+}
+
+::placeholder{
+    color: gray;
+}
+
+.text-area-contact{
+    border-radius: 5px;
+    border: 1px solid black;
+    width: 95%;  
+    height: 140px;       
+}
+
+.btn-contact:hover{
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    font-size: 15px;
+    background-color: rgb(181, 252, 181);
+}
+
+#mensaje-rojo, #mensaje-rojo2{
+    padding: 1px;
+    margin: 0;
+    font-size: 10px;
+    color: red;
+    font-family: Arial, Helvetica, sans-serif;
+}

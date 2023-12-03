@@ -1,0 +1,540 @@
+/* Estilos generales */
+
+* {
+    text-decoration: none;
+    font-family: 'Special Elite', cursive;
+}
+
+body {
+    background: black;
+}
+
+h1 {
+    color: white;
+    margin-bottom: 0px;
+}
+
+h2 {
+    color: wheat;
+    margin-top: 0px;
+}
+
+h3 {
+    color: black;
+    margin-top: 10px;
+    margin-bottom: 0px;
+}
+
+/* Estilos para el header */
+
+header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+header div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-image: radial-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 1)), url(../img/Madera.jpg);
+    background-size: 100%;
+}
+
+/* Estilos para la barra de navegación */
+
+nav {
+    position: sticky;
+    top: 95px;
+    left: 0;
+    width: 100%;
+    background-color: black;
+}
+
+nav div {
+    display: flex;
+    height: 60px;
+    align-items: flex-end;
+}
+
+nav div div a {
+    color: black
+}
+
+nav div div {
+    font-size: 15px;
+    border: 1px solid black;
+    width: 20%;
+    height: 30px;
+    align-items: center;
+    justify-content: center;
+    background-image: url(../img/1000_F_299954599_W13RyRyMcugCDfzUzIzVM4SrNVzg3tnQ.jpg);
+    border-radius: 15px 15px 0px 0px;
+    transition: height 0.2s ease;
+}
+
+nav div div a:hover {
+    color: brown;
+}
+
+nav div div:hover {
+    border: 1px solid black;
+    height: 60px;
+    align-items: center;
+}
+
+/* Estilos para la maquetación de la página Inicio */
+
+.contenedor-grid {
+    display: grid;
+    grid-template: auto 400px / 30% 30% auto;
+    grid-template-areas: "titulo titulo titulo"
+        "imagen_1 imagen_2 texto";
+}
+
+.titulo_portada {
+    grid-area: titulo;
+    display: flex;
+    padding-top: 20px;
+    color: white;
+}
+
+.imagen_portada_1 {
+    grid-area: imagen_1;
+    margin: 5%;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 10%;
+}
+
+.imagen_portada_2 {
+    grid-area: imagen_2;
+    margin: 5%;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 10%;
+}
+
+.contenido_portada {
+    grid-area: texto;
+    display: flex;
+    padding: 10px;
+    text-align: justify;
+    font-family: 'Special Elite', cursive;
+    color: white;
+}
+
+.logo_landing_cont {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 3%;
+    padding: 2%;
+}
+
+.logo_landing {
+max-width: 100%;
+}
+
+/* Estilos para la maquetación del footer */
+
+.contenedor-grid-footer {
+    display: grid;
+    grid-template: auto / auto auto;
+    grid-template-areas: "direccion redes";
+    color: white;
+    margin-top: 5vmax;
+}
+
+footer div p {
+    grid-area: direccion;
+    padding: 10px;
+}
+
+footer div div {
+    grid-area: redes;
+    justify-content: center;
+    align-items: center;
+}
+
+footer div a {
+    color: white
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5%
+}
+
+.iconos_footer {
+    display: flex;
+    gap: 10px;
+}
+
+/* Estilos para el boton de whatsapp */
+
+.btn-wsp {
+    position: fixed;
+    width: 55px;
+    height: 55px;
+    line-height: 55px;
+    bottom: 30px;
+    right: 30px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 0px 1px 10px rgba(0, 0, 0, 0, 3);
+    z-index: 100;
+    transition: transform .2s;
+}
+
+
+.btn-wsp:hover {
+    animation: btn-wsp-swing none .8s  ;    
+    transform: scale(1.3)
+}
+.btn-wsp:hover::after {
+    transform: scale(1.3)
+}
+@keyframes btn-wsp-swing {
+    0% {transform: scale(1.3);}
+    33% {transform: rotate(25deg) scale(1.3);}
+    66% {transform: rotate(-25deg) scale(1.3);}
+    100% {transform: scale(1.3);}
+    
+}
+
+/* Estilos para la maquetación de la página Historia */
+
+.contenedor_grid_historia {
+    display: grid;
+    grid-template: auto 400px / 30% auto;
+    grid-template-areas: "titulo_historia titulo_historia"
+        "imagen_historia texto_historia";
+}
+
+.titulo_historia {
+    grid-area: titulo_historia;
+    display: flex;
+    padding-top: 20px;
+}
+
+.imagen_historia {
+    grid-area: imagen_historia;
+    margin: 5%;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 3dvw;
+}
+
+.contenido_historia {
+    grid-area: texto_historia;
+    display: flex;
+    padding: 10px;
+    text-align: justify;
+    font-family: 'Special Elite', cursive;
+    color: white;
+}
+
+/* Estilos para la maquetación de la página Pizzas */
+
+.articulo_pizza {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    border-radius: 3dvb;
+    background-image: url(../img/1000_F_299954599_W13RyRyMcugCDfzUzIzVM4SrNVzg3tnQ.jpg);
+    /*min-height: 50vh; */
+}
+
+.fondo_pizzas {
+    padding: 10px;
+    border-radius: 1;
+}
+
+.nombre_pizza {
+    text-align: center;
+}
+
+.texto_pizza {
+    text-align: center;
+    color: black;
+    width: 95%;
+    min-height: 20dvh;
+    padding-bottom: 1.4dvb;
+}
+
+.texto_pizza p {
+    margin: 0px;
+    padding-top: 1dvb;
+}
+.imagen_pizza {
+    height: 25vh;
+    overflow: hidden;
+    border-radius: 10%;
+}
+
+.imagen_pizza img {
+    height: 100%
+}
+
+.imagen_bebida {
+    height: 25vh;
+    overflow: hidden;
+    border-radius: 10%;
+}
+
+.imagen_bebida img {
+    height: 100%
+}
+
+.contenedor_grid_pizzas {
+    display: grid;
+    grid-template: auto auto auto auto / 25% 25% 25% 25%;
+    grid-template-areas: "titulo_pizza titulo_pizza titulo_pizza titulo_pizza"
+        "pizza_0 pizza_1 pizza_2 pizza_3"
+        "pizza_4 pizza_5 pizza_6 pizza_7"
+        "pizza_8 pizza_9 pizza_10 pizza_11";
+}
+
+.titulo_pizzas {
+    grid-area: titulo_pizza;
+    display: flex;
+    padding-top: 20px;
+}
+
+.pizza_0 {
+    grid-area: pizza_0;
+}
+
+.pizza_1 {
+    grid-area: pizza_1;
+}
+
+.pizza_2 {
+    grid-area: pizza_2;
+}
+
+.pizza_3 {
+    grid-area: pizza_3;
+}
+
+.pizza_4 {
+    grid-area: pizza_4;
+}
+
+.pizza_5 {
+    grid-area: pizza_5;
+}
+
+.pizza_6 {
+    grid-area: pizza_6;
+}
+
+.pizza_7 {
+    grid-area: pizza_7;
+}
+
+.pizza_8 {
+    grid-area: pizza_8;
+}
+
+.pizza_9 {
+    grid-area: pizza_9;
+}
+
+.pizza_10 {
+    grid-area: pizza_10;
+}
+
+.pizza_11 {
+    grid-area: pizza_11;
+}
+
+
+.boton_agregar_eliminar {
+    font-size: 15px;
+    height: 50px;
+    width: 100px;
+    border-radius: 1.5dvb;
+    transition: font-size 0.2s ease;
+}
+
+.boton_agregar_eliminar:hover {
+    font-size: 17px;
+    background-color: lightgreen;
+}
+
+.cantArticulo {
+    font-weight: 600;
+}
+.mipedido {
+    text-align: center;
+    display: grid;
+    color: white;
+    font-weight: 400;
+}
+
+
+/* Estilos para la maquetación de la página Pedidos */
+
+.fondo_formulario {
+    background-image: url(../img/1000_F_299954599_W13RyRyMcugCDfzUzIzVM4SrNVzg3tnQ.jpg);
+    border-radius: 3dvw;
+    border: 1px solid black;
+}
+
+form {
+    padding: 20px;
+}
+
+input[id=cant] {
+    width: 30px;
+}
+
+input[id=nombre],
+input[id=direccion],
+input[id=tel],
+input[id=correo] {
+    min-width: 250px;
+    width: 20%;
+    border-radius: 5px;
+    border: 1px solid black;  
+    height: 30px
+}
+
+::placeholder{
+    color: gray;
+}
+
+.titulo_pedido {
+    padding-top: 20px;
+}
+
+.mensajes-alerta {
+    color: red;
+    font-weight: 600;
+    font-size: small;
+    margin-top: 5px;
+}
+
+.g-recaptcha {
+    transform: scale(0.85);
+    transform-origin: 0;
+}
+
+.envioForm {
+    color: rgb(15, 87, 15);
+    font-weight: 600;
+}
+
+/* Media Queries */
+
+@media (max-width: 1200px) {
+    .contenedor_grid_pizzas {
+        display: grid;
+        grid-template: auto auto auto auto auto / 33% auto 33%;
+        grid-template-areas: "titulo_pizza titulo_pizza titulo_pizza"
+            "pizza_0 pizza_1 pizza_2"
+            "pizza_3 pizza_4 pizza_5"
+            "pizza_6 pizza_7 pizza_8"
+            "pizza_9 pizza_10 pizza_11";
+    }
+    .texto_pizza {
+        text-align: center;
+        color: black;
+        min-height: 18dvh;
+        width: 97%;
+        padding: 3%;
+    }
+}
+
+@media (max-width: 900px) {
+    .contenedor-grid {
+        display: grid;
+        grid-template: auto 200px 200px/ 30% auto;
+        grid-template-areas: "titulo titulo"
+            "imagen_1 texto"
+            "imagen_2 texto";
+    }
+
+    .contenedor_grid_pizzas {
+        display: grid;
+        grid-template: auto auto auto auto auto auto auto/ 50% 50%;
+        grid-template-areas: "titulo_pizza titulo_pizza"
+            "pizza_0 pizza_1"
+            "pizza_2 pizza_3"
+            "pizza_4 pizza_5"
+            "pizza_6 pizza_7"
+            "pizza_8 pizza_9"
+            "pizza_10 pizza_11";
+    }
+    .texto_pizza {
+        text-align: center;
+        color: black;
+        min-height: 18dvh;
+        width: 97%;
+        padding: 3%;
+    }
+}
+
+@media (max-width: 600px) {
+    .contenedor_grid_pizzas {
+        display: grid;
+        grid-template: auto auto auto auto auto auto auto auto auto auto auto auto auto/ auto;
+        grid-template-areas: "titulo_pizza"
+            "pizza_0"
+            "pizza_1"
+            "pizza_2"
+            "pizza_3"
+            "pizza_4"
+            "pizza_5"
+            "pizza_6"
+            "pizza_7"
+            "pizza_8"
+            "pizza_9"
+            "pizza_10"
+            "pizza_11";
+    }
+}
+
+@media (max-width: 550px) {
+    .contenedor-grid {
+        display: grid;
+        grid-template: auto 200px auto/ 50% 50%;
+        grid-template-areas: "titulo titulo" "imagen_1 imagen_2" "texto texto";
+    }
+
+    .contenedor_grid_historia {
+        display: grid;
+        grid-template: auto 400px auto / auto;
+        grid-template-areas: "titulo_historia"
+            "imagen_historia"
+            "texto_historia";
+    }
+
+    .contenedor-grid-footer {
+        display: grid;
+        grid-template: auto auto/ auto;
+        grid-template-areas: "direccion"
+            "redes";
+    }
+
+    footer div p {
+        grid-area: direccion;
+        padding: 0px;
+    }
+
+    nav div div {
+        font-size: 12px;
+    }
+}
+
