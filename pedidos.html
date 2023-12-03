@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>La Udinese</title>
+        <link rel="icon" href="./img/favicon-32x32.png">    
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="./css/estilos_generales.css">
+        <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+        <script src="./js/funciones.js"></script>
+    </head>
+
+    <body onload="mostrarPedido()">
+        <header>
+            <div>
+                <h1>La Udinese</h1>
+                <h2>Vera pizza friulana</h2>
+            </div>
+        </header>
+
+        <nav>
+            <div>
+                <div><a href="./index.html">Inicio</a></div>
+                <div><a href="./historia.html">Historia</a></div>
+                <div><a href="./pizzas.html">Pizzas</a></div>
+                <div><a href="./pedidos.html">Pedidos</a></div>
+                <div><a href="./contacto.html">Contacto</a></div>
+            </div>
+        </nav>
+
+    <main>
+        <div>
+            <div class="titulo_pedido">
+                <h2>Completá tu pedido</h2>
+            </div>
+            <div class="fondo_formulario">
+                <form action="" name="formPedido">
+                    <div>
+                        Lista de pedidos:
+                    </div>
+                    <ul id="listaPedido"></ul>
+
+                    <input type="button" value="Modificar" onclick="location.href= './pizzas.html';" class="boton_agregar_eliminar">
+                    <button class="boton_agregar_eliminar" onclick="vaciarCarrito()" value="">Vaciar
+                    </button>
+                    
+                    <br><br>
+                   
+                    <label for="nombre">Nombre:</label><br>
+                    <input type="text" id="nombre" name="nombre" placeholder="Ingrese aquí su nombre"><br>
+                    <div class="mensajes-alerta" id="alertNombre"></div><br>
+                    
+                    <label for="direccion">Dirección:</label><br>
+                    <input type="text" id="direccion" name="direccion" placeholder="Ingrese aquí su dirección"><br>
+                    <div class="mensajes-alerta" id="alertDireccion"></div><br>
+                    
+                    <label for="tel">Teléfono:</label><br>
+                    <input type="number" id="tel" name="tel" placeholder="Ingrese su teléfono (ej. 1122334455)"><br>
+                    <div class="mensajes-alerta" id="alertTel"></div><br>
+                    
+                    <label for="correo">Correo electrónico:</label><br>
+                    <input type="email" id="correo" name="correo" placeholder="Ingrese aquí su correo"><br>
+                    <div class="mensajes-alerta" id="alertCorreo"></div><br>
+
+                    <label for="">Rango horario de entrega:</label><br>
+                    <input type="radio" id="primera" name="hora">
+                    <label for="primera">Entre las 20:00 y las 21:00</label><br>
+                    <input type="radio" id="segunda" name="hora">
+                    <label for="segunda">Entre las 21:00 y las 22:00</label><br>
+                    <input type="radio" id="tercera" name="hora">
+                    <label for="tercera">Entre las 22:00 y las 23:00</label><br>
+                    <div class="mensajes-alerta" id="alertHora"></div><br>
+                    <div class="g-recaptcha" data-sitekey="6LeDx6coAAAAACx-FQxEuAY7mMPuFkRt40sQq9Ts"></div>
+                    <div class="mensajes-alerta" id="alertCaptcha"></div><br>
+                    <input type="button" class="boton_agregar_eliminar" value="Enviar" onclick="validarForm()"><br><br>
+                    <div class="envioForm" id="envioForm"></div><br>
+
+                </form>
+
+            </div>
+        </div>
+    </main>
+
+        <footer>
+            <div class="contenedor-grid-footer">
+                <p>
+                    Juan Bautista Alberdi 100 - Ciudad de Buenos Aires
+                </p>
+                <div class="iconos_footer">
+                    <a href="https://facebook.com" target="_blank"><span class="fa fa-facebook"></span></a>
+                    <a href="https://twitter.com" target="_blank"><span class="fa fa-twitter"></span></a>
+                    <a href="https://instagram.com" target="_blank"><span class="fa fa-instagram"></span></a>
+                </div>
+            </div>        
+            <div>
+                <a target="_blank" href=" https://api.whatsapp.com/send?phone=5491157405597">
+                <img class="btn-wsp" src="./img/favicon.png" alt="Logo Whatsapp" >
+                </a> 
+            </div>  
+        </footer>
+
+    </body>
+
+</html>

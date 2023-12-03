@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Udinese</title>
+    <link rel="icon" href="./img/favicon-32x32.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./css/estilos_generales.css">
+    <link rel="stylesheet" href="./css/contacto.css">
+    <script src="./js/contacto.js"></script>
+</head>
+
+<body>
+    <header>
+        <div>
+            <h1>La Udinese</h1>
+            <h2>Vera pizza friulana</h2>
+        </div>
+    </header>
+    <nav>
+        <div>
+            <div><a href="./index.html">Inicio</a></div>
+            <div><a href="./historia.html">Historia</a></div>
+            <div><a href="./pizzas.html">Pizzas</a></div>
+            <div><a href="./pedidos.html">Pedidos</a></div>
+            <div><a href="./contacto.html">Contacto</a></div>
+        </div>
+    </nav>
+    <main>        
+        <!-- ContactPanel-Container -->        
+        <div class="titulo_portada">
+                <h2>Contacto</h2>
+        </div>
+        <div class="contactPanel-container">  
+            <!-- Form Panel-->          
+            <div class="contact-panel">
+                <div class="contact-title">
+                    Envíenos su Comentario
+                </div>
+                <form name="formularioContacto">
+                    <div class="elements-ContactPanel">
+                        <div class="element-panel1"><label for="">Nombre</label></div>
+                        <div class="element-panel2">
+                            <input type="text" name="nombreContacto" id="nombre-contacto" class="input-contact" maxlength="50" placeholder="Ingrese aquí su nombre" onInput="validarNombre(event)">
+                            <p id="mensaje-rojo"></p>
+                        </div>
+                    </div>
+                    <div class="elements-ContactPanel">
+                        <div class="element-panel1"><label for="">Email</label></div>
+                        <div class="element-panel2">
+                            <input type="email" name="emailContacto" id="email-contacto" class="input-contact" maxlength="50" placeholder="Ingrese aquí su email" onInput="validarEmail(event)">
+                            <p id="mensaje-rojo"></p>
+                            <p id="mensaje-rojo2"></p>
+                        </div>
+                    </div>
+                    <div class="elements-ContactPanel">
+                        <div class="element-panel3"><label for="">Comentario</label></div>
+                        <div class="element-panel2">
+                            <textarea name="comentarioContacto" id="comentario-contacto" class="text-area-contact" maxlength="500" placeholder="Ingrese aquí su Comentario"></textarea>
+                            <p id="mensaje-rojo"></p>
+                        </div>
+                    </div>
+                    <div class="elements-ContactPanel">                        
+                        <div class="element-panel4-btn">
+                            <input type="button" id="limpiar-contacto" value="Reset" class="btn-contact" onclick="limpiarCampos()">
+                            <input type="button" value="Enviar" class="btn-contact" onclick="validarformularioContacto();">                            
+                        </div>
+                    </div>
+                </form>                
+            </div>
+            <!-- Location Panel-->
+            <div class="contact-panel">
+                <div class="contact-title">
+                    Nuestra ubicación
+                </div>
+                <div>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3283.274704672407!2d-58.428973!3d-34.6224977!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcca4fe754097b%3A0xa783defebc1445b5!2sAv.%20Juan%20Bautista%20Alberdi%20100%2C%20C1424BYN%20CABA!5e0!3m2!1ses-419!2sar!4v1693164464684!5m2!1ses-419!2sar" width="100%" height="305" style="border:0;border: 1px solid brown;border-radius: 10px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>                
+            </div>
+        </div>            
+    </main>
+    <footer>
+        <div class="contenedor-grid-footer">
+            <p>
+                Juan Bautista Alberdi 100 - Ciudad de Buenos Aires
+            </p>
+            <div class="iconos_footer">
+                <a href="https://facebook.com" target="_blank"><span class="fa fa-facebook"></span></a>
+                <a href="https://twitter.com" target="_blank"><span class="fa fa-twitter"></span></a>
+                <a href="https://instagram.com" target="_blank"><span class="fa fa-instagram"></span></a>
+            </div>
+        </div>        
+        <div>
+            <a target="_blank" href=" https://api.whatsapp.com/send?phone=5491157405597">
+            <img class="btn-wsp" src="./img/favicon.png" alt="Logo Whatsapp">
+            </a>
+        </div>  
+    </footer>
+</body>
+</html>

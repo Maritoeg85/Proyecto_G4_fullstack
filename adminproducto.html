@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Udinese</title>
+    <link rel="icon" href="./img/favicon-32x32.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./css/estilos_generales.css">
+    <link rel="stylesheet" href="./css/admin.css">
+
+</head>
+
+<body >
+    <header>
+        <div>
+            <h1>La Udinese</h1>
+            <h2>Vera pizza friulana</h2>
+        </div>
+    </header>
+    <nav>
+        <div>
+            <div><a href="./index.html" target="_blank">Inicio</a></div>
+            <div><a href="./historia.html" target="_blank">Historia</a></div>
+            <div><a href="./pizzas.html" target="_blank">Pizzas</a></div>
+            <div><a href="./pedidos.html" target="_blank">Pedidos</a></div>
+            <div><a href="./contacto.html" target="_blank">Contacto</a></div>
+            <div><a href="./admin.html">admin</a></span>
+        </div>
+    </nav>
+    <main id="app">        
+        <!-- ContactPanel-Container -->        
+        <div class="titulo_portada">
+                <h2>Administracion</h2>
+        </div>
+        <div class="contactPanel-container">  
+            <!-- Form Panel-->          
+            
+            <div class="admin-title">
+            </div>
+            <div>
+                <li @click="CrearProducto()">Nuevo</li>
+                <li @click="ListarProductos()">Lista</li>
+                <li @click="ListarModProducto()">Modificar/Borrar</li>
+            </div>
+            <div v-if="listarproductos">
+                <table >
+                <th>nombre</th>
+                <th>categoria</th>
+                <th>precio</th>
+                <th>operar</th>
+                <tbody  id="tablaProductos"> </tbody>
+                <tr v-for="prod in productos" >
+                    <td>{{ prod.nombre }}</td>
+                    <td>{{ prod.descripcion }}</td>
+                    <td>{{ prod.imagen }}</td>
+                    <td>{{ prod.precio }}</td>
+                    <td>{{ prod.categoria }}</td>
+                    <td>{{ prod.ingredientes }}</td>
+                </tr>
+                </table>
+            </div>
+            <div v-if="modificarproducto">
+                    <table >
+                    <th>nombre</th>
+                    <th>categoria</th>
+                    <th>precio</th>
+                    <th>operar</th>
+                    <tbody  id="tablaProductos"> </tbody>
+                    <tr v-for="prod in productos" >
+                        <td>{{ prod.nombre }}</td>
+                        <td>{{ prod.categoria }}</td>
+                        <td>{{ prod.precio }}</td>
+                        <td><button class="boton_agregar_eliminar" @click="EliminarProducto(prod.id)">Eliminar</button>
+                            <button class="boton_agregar_eliminar" @click="MostrarProducto(prod.id)">Modificar</button>
+                        </td>
+                    </tr>
+                    </table>
+            </div>
+            <div v-if="mostrardatosproducto">
+                    <form>
+                        <label for="nombreModificar">Nombre:</label>
+                        <input type="text" id="nombreModificar" v-model="nombre" required><br>
+                        <label for="descripcionModificar">Descripción:</label>
+                        <input type="text" id="descripcionModificar" v-model="descripcion" required><br>
+                        <label for="imagenModificar">Imagen:</label>
+                        <input type="text" id="imagenModificar" v-model="imagen" required><br>
+                        <label for="precioModificar">Precio:</label>
+                        <input type="number" step="0.01" id="precioModificar" v-model="precio" required><br>
+                        <label for="categoriaModificar">Categoria:</label>
+                        <input type="text" id="categoriaModificar" v-model="categoria" required><br>
+                        <label for="ingredientesnModificar">Ingredientes:</label>
+                        <input type="text" id="ingredientesModificar" v-model="ingredientes" ><br>
+
+                        <button @click="ModificarProducto(id)">Guardar Cambios</button>
+                        <button @click="CancelarCambio()">Cancelar</button>
+                    </form>
+            </div>
+            <div v-if="crearproducto">
+                <form @submit.prevent="AgregarProducto()">
+                    <label for="nombreAgregar">Nombre:</label>
+                    <input type="text" id="nombreAgregar" v-model="nombre" required><br>
+                    <label for="descripcionAgregar">Descripción:</label>
+                    <input type="text" id="descripcionAgregar" v-model="descripcion" required><br>
+                    <label for="imagenAgregar">Imagen:</label>
+                    <input type="text" id="imagenAgregar" v-model="imagen" required><br>
+                    <label for="precioAgregar">Precio:</label>
+                    <input type="number" step="0.01" id="precioAgregar" v-model="precio" required><br>
+                    <label for="categoriaAgregar" >Categoria:</label>
+                    <select name="categoria" id="categoria" class="input-contact" v-model="categoria"   > 
+                    <option value="Aguasas">Aguas</option> 
+                    <option value="Cervezas">Cervezas</option>
+                    <option value="Gaseosas">Gaseosas</option>
+                    <option value="Pizzas">Pizzas</option> 
+                                        </select>
+                    <label for="ingredientesAgregar">Ingredientes:</label>
+                    <input type="text" id="ingredientesAgregar" v-model="ingredientes" ><br>
+
+                    <button type="submit">Guardar Cambios</button>
+                    <button @click="CancelarCambio()">Cancelar</button>
+                </form>
+        </div>
+
+            
+            <!-- Location Panel-->
+                    
+    </main>
+    <footer>
+        <div class="contenedor-grid-footer">
+            <p>
+                Juan Bautista Alberdi 100 - Ciudad de Buenos Aires
+            </p>
+            <div class="iconos_footer">
+                <a href="https://facebook.com" target="_blank"><span class="fa fa-facebook"></span></a>
+                <a href="https://twitter.com" target="_blank"><span class="fa fa-twitter"></span></a>
+                <a href="https://instagram.com" target="_blank"><span class="fa fa-instagram"></span></a>
+            </div>
+        </div>        
+        <div>
+            <a target="_blank" href=" https://api.whatsapp.com/send?phone=5491157405597">
+            <img class="btn-wsp" src="./img/favicon.png" alt="Logo Whatsapp">
+            </a>
+        </div>  
+    </footer>
+</body>
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script src="./js/adminproducto.js"></script>
+
+</html>
