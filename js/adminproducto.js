@@ -1,5 +1,5 @@
 // obtenemos los datos de los productos
-const URL = "http://192.168.0.170:5000/"
+const URL = "https://maritoeg85.pythonanywhere.com/"
 
 const app = Vue.createApp(
     {
