@@ -1,0 +1,4 @@
+GET https://api.jsonserver.io/productos
+   Headers(
+      'X-Jsio-Token': 'e0f4804888ba287e04f94c71fd5b71f7'
+      )
