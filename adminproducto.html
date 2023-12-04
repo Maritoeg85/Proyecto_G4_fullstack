@@ -11,9 +11,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="./css/estilos_generales.css">
-    <link rel="stylesheet" href="./css/admin.css">
+    <link rel="stylesheet" href="./css/contacto.css">
 
-</head>
+</head> 
 
 <body >
     <header>
@@ -34,15 +34,15 @@
     </nav>
     <main id="app">        
         <!-- ContactPanel-Container -->        
-        <div class="titulo_portada">
+        <div class="titulo_subportada">
                 <h2>Administracion</h2>
         </div>
         <div class="contactPanel-container">  
             <!-- Form Panel-->          
             
-            <div class="admin-title">
+            <div >
             </div>
-            <div>
+            <div class="titulo_subportada">
                 <li @click="CrearProducto()">Nuevo</li>
                 <li @click="ListarProductos()">Lista</li>
                 <li @click="ListarModProducto()">Modificar/Borrar</li>
@@ -81,7 +81,7 @@
                     </tr>
                     </table>
             </div>
-            <div v-if="mostrardatosproducto">
+            <div class="admin_producto" v-if="mostrardatosproducto">
                     <form>
                         <label for="nombreModificar">Nombre:</label>
                         <input type="text" id="nombreModificar" v-model="nombre" required><br>
@@ -95,12 +95,13 @@
                         <input type="text" id="categoriaModificar" v-model="categoria" required><br>
                         <label for="ingredientesnModificar">Ingredientes:</label>
                         <input type="text" id="ingredientesModificar" v-model="ingredientes" ><br>
-
-                        <button @click="ModificarProducto(id)">Guardar Cambios</button>
-                        <button @click="CancelarCambio()">Cancelar</button>
+                        <div>
+                            <button class="boton_agregar_eliminar" @click="ModificarProducto(id)">Modificar</button>
+                            <button class="boton_agregar_eliminar" @click="CancelarCambio()">Cancelar</button>
+                        </div>
                     </form>
             </div>
-            <div v-if="crearproducto">
+            <div class="admin_producto" v-if="crearproducto">
                 <form @submit.prevent="AgregarProducto()">
                     <label for="nombreAgregar">Nombre:</label>
                     <input type="text" id="nombreAgregar" v-model="nombre" required><br>

@@ -95,6 +95,8 @@ class Catalogo:
         valores = (nuevo_nombre, nueva_descripcion, nueva_imagen, nuevo_precio, nueva_categoria, nuevos_ingredientes, id )
         self.cursor.execute(sql, valores)
         self.conn.commit()
+        print(self.conn.commit)
+        
         return self.cursor.rowcount > 0
 
     #----------------------------------------------------------------
@@ -159,7 +161,7 @@ def modificar_producto(id):
     nueva_imagen = request.form.get("imagen")
     nuevos_ingredientes = request.form.get("ingredientes")
 
-
+    #modificar_producto( id, nuevo_nombre, nueva_descripcion, nueva_imagen, nuevo_precio, nueva_categoria, nuevos_ingredientes)
     if catalogo.modificar_producto( id, nuevo_nombre, nueva_descripcion, nueva_imagen, nuevo_precio, nueva_categoria, nuevos_ingredientes):
         return jsonify({"mensaje": "Producto modificado"}), 200
     else:
