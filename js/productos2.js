@@ -1,5 +1,8 @@
+//const productos_url = 'https://maritoeg85.pythonanywhere.com/productos'
+const productos_url = "http://192.168.0.170:5000/productos"
+
+
 function leeproductos() {
-    const productos_url = 'https://maritoeg85.pythonanywhere.com/productos'
     fetch(productos_url, {
       method: 'GET'
       }

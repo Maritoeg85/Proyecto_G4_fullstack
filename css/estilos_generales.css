@@ -63,7 +63,7 @@ nav div div a {
     color: black
 }
 
-nav div div {
+nav div div  {
     font-size: 15px;
     border: 1px solid black;
     width: 20%;
@@ -75,8 +75,9 @@ nav div div {
     transition: height 0.2s ease;
 }
 
-nav div div a:hover {
+nav div div a:hover , .titulo_subportada li:hover{
     color: brown;
+    cursor: pointer;
 }
 
 nav div div:hover {
@@ -140,6 +141,58 @@ nav div div:hover {
 max-width: 100%;
 }
 
+.titulo_subportada {
+    display: inline-flex;
+    padding-top: 20px;
+    color: white;
+    position: sticky;
+    top: 95px;
+    left: 0;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+.titulo_subportada li {
+    display: flex;
+    margin: 2dvw;
+    margin-top: 0px;
+    padding-top: 0px;
+    align-items: center;
+    font-size: 15px;
+    height: 30px;
+    align-items: center;
+    justify-content: center;
+    color: black
+    
+}
+.admin_producto {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;    
+        width: 375px;    
+        border: 1px solid black;        
+        border-radius: 10px;
+        margin: 10px;
+        box-shadow: 0px 0px 20px #000;
+        display: flex;
+        flex-wrap: wrap;
+
+        margin: 0;
+        padding: 0;
+}
+
+.admin_producto form label {
+        width: 65%;
+        padding: 2px;
+    }
+
+.admin_producto form input{
+    align-items: flex-end;
+    justify-content: flex-end;
+    padding: 2px;
+    width: 30%;
+}
 /* Estilos para la maquetación del footer */
 
 .contenedor-grid-footer {

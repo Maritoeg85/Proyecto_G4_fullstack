@@ -1,5 +1,6 @@
 // obtenemos los datos de los productos
-const URL = "https://maritoeg85.pythonanywhere.com/"
+//const URL = "https://maritoeg85.pythonanywhere.com/"
+const URL = "http://192.168.0.170:5000/"
 
 const app = Vue.createApp(
     {
@@ -72,6 +73,7 @@ const app = Vue.createApp(
         CrearProducto() {
             this.modificarproducto = false;
             this.listarproductos = false;
+            this.mostrardatosproducto = false;
             this.crearproducto = true;
         },
         seleccionarImagen(event) {
@@ -105,7 +107,7 @@ const app = Vue.createApp(
                 .then(response => response.json())
                 .then(data => {
                     alert('Producto agregado correctamente');
-                    window.open("./prod_vue2.html", "_self");
+                    window.open("./adminproducto.html", "_self");
                 })
                 .catch(error => {
                     console.error('Error:', error);
@@ -127,15 +129,16 @@ const app = Vue.createApp(
                 method: 'PUT',
                 body: formData,
             })
-                .then(response => response.json())
-                .then(data => {
-                    alert('Producto actualizado correctamente');
-                    window.open("./prod_vue2.html", "_self");
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                    alert('Error al actualizar el producto');
-                })
+            .then(response => {response.json();
+            })
+            .then(data => {
+                alert('Producto actualizado correctamente');
+                setTimeout(function(){window.open("./adminproducto.html", "_self")},1000)
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Error al actualizar el producto');
+            })
             
         },
         EliminarProducto(id) {
@@ -152,11 +155,11 @@ const app = Vue.createApp(
                 alert(error.message);
                 console.log(error)
             })
-            setTimeout(function(){window.open("./prod_vue2.html", "_self")},100)
+            setTimeout(function(){window.open("./adminproducto.html", "_self")},100)
             }
         },
         CancelarCambio(){
-            window.open("./prod_vue2.html", "_self");
+            window.open("./adminproducto.html", "_self");
         }
     },
     mounted() {
