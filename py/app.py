@@ -19,7 +19,7 @@ import time
 
 
 app = Flask(__name__)
-CORS(app)  # Esto habilitará CORS para todas las rutas
+cors = CORS(app)  # Esto habilitará CORS para todas las rutas
 
 #--------------------------------------------------------------------
 class Catalogo:
@@ -91,13 +91,28 @@ class Catalogo:
 
     #----------------------------------------------------------------
     def modificar_producto(self, id, nuevo_nombre, nueva_descripcion, nueva_imagen, nuevo_precio, nueva_categoria, nuevos_ingredientes):
-        sql = "UPDATE productos SET `nombre`  = %s, `descripcion` = %s, imagen = %s, precio = %s, categoria = %s, `ingredientes` = %s  WHERE id = %s"
-        valores = (nuevo_nombre, nueva_descripcion, nueva_imagen, nuevo_precio, nueva_categoria, nuevos_ingredientes, id )
-        self.cursor.execute(sql, valores)
-        self.conn.commit()
-        print(self.conn.commit)
-        
-        return self.cursor.rowcount > 0
+        try:
+            sql = "UPDATE productos SET `nombre` = %s, `descripcion` = %s, imagen = %s, precio = %s, categoria = %s, `ingredientes` = %s WHERE id = %s"
+            valores = (nuevo_nombre, nueva_descripcion, nueva_imagen, nuevo_precio, nueva_categoria, nuevos_ingredientes, id)
+
+            # Ejecutar la consulta SQL
+            self.cursor.execute(sql, valores)
+
+            # Confirmar la transacción en la base de datos
+            self.conn.commit()
+
+
+            # Imprimir el número de filas afectadas (opcional)
+            print("Filas afectadas:", self.cursor.rowcount)
+
+            # Retornar True si al menos una fila fue afectada
+            return self.cursor.rowcount > 0
+        except Exception as e:
+            # Manejo de errores
+            print("Error al modificar el producto:", str(e))
+            # Puedes elevar la excepción nuevamente si es necesario
+            raise e
+
 
     #----------------------------------------------------------------
     def listar_productos(self):

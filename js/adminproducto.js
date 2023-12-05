@@ -25,30 +25,46 @@ const app = Vue.createApp(
     methods: {
         
         ListarProductos() {
-            this.listarproductos = true;
-            this.modificarproducto = false;
-            this.crearproducto = false;
-            // Obtenemos el contenido del inventario
-                fetch(URL + 'productos')
-                    .then(response => {
-                         // Parseamos la respuesta JSON 
-                        if (response.ok) { return response.json();}
-                    })
-                    .then(data => {
-                        // El código Vue itera este elemento para generar la tabla
-                        console.log("traje la data");
-                        this.productos = data;
-                    })
-                    .catch(error => {
-                        console.log('Error:', error);
-                        alert('Error al obtener los productos.');
-                    });
+            if (this.listarproductos){
+                this.listarproductos = false;
+                this.modificarproducto = false;
+                this.crearproducto = false;
+                this.mostrardatosproducto = false;
+            }else{
+                this.listarproductos = true;
+                this.modificarproducto = false;
+                this.crearproducto = false;
+                this.mostrardatosproducto = false;
+                // Obtenemos el contenido del inventario
+                    fetch(URL + 'productos')
+                        .then(response => {
+                            // Parseamos la respuesta JSON 
+                            if (response.ok) { return response.json();}
+                        })
+                        .then(data => {
+                            // El código Vue itera este elemento para generar la tabla
+                            console.log("traje la data");
+                            this.productos = data;
+                        })
+                        .catch(error => {
+                            console.log('Error:', error);
+                            alert('Error al obtener los productos.');
+                        });
+            }
         },
         ListarModProducto(){
-            this.ListarProductos();
-            this.listarproductos = false;
-            this.modificarproducto = true;
-            this.crearproducto = false;
+            if (this.modificarproducto){
+                this.listarproductos = false;
+                this.modificarproducto = false;
+                this.crearproducto = false;
+                this.mostrardatosproducto = false;
+            } else{
+                this.ListarProductos();
+                this.listarproductos = false;
+                this.modificarproducto = true;
+                this.crearproducto = false;
+                this.mostrardatosproducto = false;
+            }
             
         },
         MostrarProducto(id) {
@@ -71,10 +87,17 @@ const app = Vue.createApp(
                 .catch(error => console.error('Error:', error));
         },
         CrearProducto() {
-            this.modificarproducto = false;
-            this.listarproductos = false;
-            this.mostrardatosproducto = false;
-            this.crearproducto = true;
+            if (this.crearproducto){
+                this.modificarproducto = false;
+                this.listarproductos = false;
+                this.mostrardatosproducto = false;
+                this.crearproducto = false;
+            } else {
+                this.modificarproducto = false;
+                this.listarproductos = false;
+                this.mostrardatosproducto = false;
+                this.crearproducto = true;
+            }
         },
         seleccionarImagen(event) {
             //const file = event.target.files[0];
@@ -115,32 +138,43 @@ const app = Vue.createApp(
                 })
             
         },
-        ModificarProducto(id) {
-            const formData = new FormData();
-            formData.append('id', this.id);
-            formData.append('nombre', this.nombre);
-            formData.append('descripcion', this.descripcion);
-            formData.append('imagen', this.imagen);
-            formData.append('precio', this.precio);
-            formData.append('categoria', this.categoria);
-            formData.append('ingredientes', this.ingredientes);
+        async ModificarProducto(id) {
+            try {
+                const formData = new FormData();
+                formData.append('id', this.id);
+                formData.append('nombre', this.nombre);
+                formData.append('descripcion', this.descripcion);
+                formData.append('imagen', this.imagen);
+                formData.append('precio', this.precio);
+                formData.append('categoria', this.categoria);
+                formData.append('ingredientes', this.ingredientes);
         
-            fetch(URL + `productos/${id}`, {
-                method: 'PUT',
-                body: formData,
-            })
-            .then(response => {response.json();
-            })
-            .then(data => {
+                const response = await fetch(URL + `productos/${id}`, {
+                    method: 'PUT',
+                    body: formData,
+                });
+        
+                console.log('Respuesta del servidor:', response);
+        
+                if (!response.ok) {
+                    throw new Error(`Error en la solicitud: ${response.status} ${response.statusText}`);
+                }
+        
+                const data = await response.json();
+        
                 alert('Producto actualizado correctamente');
-                setTimeout(function(){window.open("./adminproducto.html", "_self")},1000)
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                alert('Error al actualizar el producto');
-            })
-            
+                setTimeout(() => {
+                    window.open('./adminproducto.html', '_self');
+                }, 1000);
+        
+                return data; // Puedes devolver datos adicionales si es necesario
+            } catch (error) {
+                console.error('Error al realizar la solicitud:', error);
+                alert('Error al actualizar el producto. Detalles: ' + error.message);
+                throw error; // Propaga el error para que pueda ser manejado por el código que llama a esta función
+            }
         },
+        
         EliminarProducto(id) {
             if (confirm('¿Estás seguro de que quieres eliminar este producto?')) {
                 fetch(URL + `productos/${id}`, { 

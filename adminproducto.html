@@ -49,10 +49,12 @@
             </div>
             <div v-if="listarproductos">
                 <table >
-                <th>nombre</th>
-                <th>categoria</th>
-                <th>precio</th>
-                <th>operar</th>
+                <th>Nombre</th>
+                <th>Descripcion</th>
+                <th>Imagen</th>
+                <th>Precio</th>
+                <th>Categoria</th>
+                <th>Ingredientes</th>
                 <tbody  id="tablaProductos"> </tbody>
                 <tr v-for="prod in productos" >
                     <td>{{ prod.nombre }}</td>
@@ -81,48 +83,90 @@
                     </tr>
                     </table>
             </div>
-            <div class="admin_producto" v-if="mostrardatosproducto">
+            <div class="contact-panel" v-if="mostrardatosproducto">
                     <form>
-                        <label for="nombreModificar">Nombre:</label>
-                        <input type="text" id="nombreModificar" v-model="nombre" required><br>
-                        <label for="descripcionModificar">Descripción:</label>
-                        <input type="text" id="descripcionModificar" v-model="descripcion" required><br>
-                        <label for="imagenModificar">Imagen:</label>
-                        <input type="text" id="imagenModificar" v-model="imagen" required><br>
-                        <label for="precioModificar">Precio:</label>
-                        <input type="number" step="0.01" id="precioModificar" v-model="precio" required><br>
-                        <label for="categoriaModificar">Categoria:</label>
-                        <input type="text" id="categoriaModificar" v-model="categoria" required><br>
-                        <label for="ingredientesnModificar">Ingredientes:</label>
-                        <input type="text" id="ingredientesModificar" v-model="ingredientes" ><br>
-                        <div>
+                        <div class="elements-ContactPanel">
+                            <label class="element-panel1" for="nombreModificar">Nombre:</label>
+                            <input class="element-panel2" type="text"id="nombreModificar" v-model="nombre"required><br>
+                        </div>
+                        <div class="elements-ContactPanel">
+                            <label class="element-panel1" for="descripcionModificar">Descripción:</label>
+                            <input class="element-panel2" type="text" id="descripcionModificar" v-model="descripcion" required><br>
+                        </div>
+                        <div class="elements-ContactPanel">
+                            <label class="element-panel1" for="imagenModificar">Imagen:</label>
+                            <input class="element-panel2" type="text" id="imagenModificar" v-model="imagen" required><br>
+                        </div>
+                        <div class="elements-ContactPanel">
+                            <label class="element-panel1" for="precioModificar">Precio:</label>
+                            <input class="element-panel2" type="number" step="0.01" id="precioModificar" v-model="precio" required><br>
+                        </div>
+                        <div class="elements-ContactPanel">
+                            <label class="element-panel1" for="categoriaModificar">Categoria:</label>
+                            <div class="element-panel2">
+                                <select name="categoria" id="categoriaModificar" class="input-contact" v-model="categoria"> 
+                                <option value="Aguasas">Aguas</option> 
+                                <option value="Cervezas">Cervezas</option>
+                                <option value="Gaseosas">Gaseosas</option>
+                                <option value="Pizzas">Pizzas</option> 
+                                </select>
+                            </div>
+                        </div>
+                        <div class="elements-ContactPanel">
+                            <label class="element-panel1" for="ingredientesModificar">Ingredientes:</label>
+                            <input  class="element-panel2" type="text" id="ingredientesModificar" v-model="ingredientes" ><br>
+                        </div>
+                        <div class="elements-ContactPanel">
                             <button class="boton_agregar_eliminar" @click="ModificarProducto(id)">Modificar</button>
                             <button class="boton_agregar_eliminar" @click="CancelarCambio()">Cancelar</button>
                         </div>
+
                     </form>
             </div>
             <div class="admin_producto" v-if="crearproducto">
                 <form @submit.prevent="AgregarProducto()">
-                    <label for="nombreAgregar">Nombre:</label>
-                    <input type="text" id="nombreAgregar" v-model="nombre" required><br>
-                    <label for="descripcionAgregar">Descripción:</label>
-                    <input type="text" id="descripcionAgregar" v-model="descripcion" required><br>
-                    <label for="imagenAgregar">Imagen:</label>
-                    <input type="text" id="imagenAgregar" v-model="imagen" required><br>
-                    <label for="precioAgregar">Precio:</label>
-                    <input type="number" step="0.01" id="precioAgregar" v-model="precio" required><br>
-                    <label for="categoriaAgregar" >Categoria:</label>
-                    <select name="categoria" id="categoria" class="input-contact" v-model="categoria"   > 
-                    <option value="Aguasas">Aguas</option> 
-                    <option value="Cervezas">Cervezas</option>
-                    <option value="Gaseosas">Gaseosas</option>
-                    <option value="Pizzas">Pizzas</option> 
-                                        </select>
-                    <label for="ingredientesAgregar">Ingredientes:</label>
-                    <input type="text" id="ingredientesAgregar" v-model="ingredientes" ><br>
+                    <div class="elements-ContactPanel">
+                        <label class="element-panel1" for="nombreAgregar">Nombre:</label>
+                        <input class="element-panel2" type="text" id="nombreAgregar" v-model="nombre" required><br>
+                    </div>
+                    <div class="elements-ContactPanel">
+                        <label class="element-panel1" for="descripcionAgregar">Descripción:</label>
+                        <input class="element-panel2" type="text" id="descripcionAgregar" v-model="descripcion" required><br>
+                    </div>
+                    <div class="elements-ContactPanel">
+                        <label class="element-panel1" for="imagenAgregar">Imagen:</label>
+                        <input class="element-panel2" type="text" id="imagenAgregar" v-model="imagen" required><br>
+                    </div>
+                    <div class="elements-ContactPanel">
+                        <label class="element-panel1" for="precioAgregar">Precio:</label>
+                        <input class="element-panel2" type="number" step="0.01" id="precioAgregar" v-model="precio" required><br>
+                    </div>
+                    <div class="elements-ContactPanel">
+                        <label class="element-panel1" for="categoriaAgregar" >Categoria: </label>
+                        <div class="element-panel2">
+                            <select  name="categoria" id="categoria" class="input-contact" v-model="categoria"   > 
+                            <option value="Aguasas">Aguas</option> 
+                            <option value="Cervezas">Cervezas</option>
+                            <option value="Gaseosas">Gaseosas</option>
+                            <option value="Pizzas">Pizzas</option> 
+                            </select>
+                        </div>
+                    </div>
+                    <div class="elements-ContactPanel">
+                        <label class="element-panel3" for="ingredientesAgregar">Ingredientes:</label>
+                        <input class="element-panel2" type="text" id="ingredientesAgregar" v-model="ingredientes" ><br>
+                    </div>
+                    <br>
+                    <div class="elements-ContactPanel element-panel4-btn">
+                        <button class="boton_agregar_eliminar" type="submit">Guardar Cambios</button>
+                        <button class="boton_agregar_eliminar" @click="CancelarCambio()">Cancelar</button>
+                    </div>
+                    
+                    
+                    
+                    
 
-                    <button type="submit">Guardar Cambios</button>
-                    <button @click="CancelarCambio()">Cancelar</button>
+
                 </form>
         </div>
 
