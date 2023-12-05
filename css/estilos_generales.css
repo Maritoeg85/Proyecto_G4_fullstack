@@ -143,10 +143,10 @@ max-width: 100%;
 
 .titulo_subportada {
     display: inline-flex;
-    padding-top: 20px;
+    padding-top: 10px;
     color: white;
-    position: sticky;
-    top: 95px;
+    position: static;
+    top: 145px;
     left: 0;
     width: 100%;
     align-items: center;
@@ -182,17 +182,7 @@ max-width: 100%;
         padding: 0;
 }
 
-.admin_producto form label {
-        width: 65%;
-        padding: 2px;
-    }
 
-.admin_producto form input{
-    align-items: flex-end;
-    justify-content: flex-end;
-    padding: 2px;
-    width: 30%;
-}
 /* Estilos para la maquetación del footer */
 
 .contenedor-grid-footer {
